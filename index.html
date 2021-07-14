@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>NumberToWords Converter | Javascript</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="converter">
+        <header>Number To Words Converter</header>
+        <!-- adding required is not necessary but it will be better to put :) -->
+        <input type="text" class="inputBox" placeholder="Type any number..." required>
+        <button class="convertBtn">Convert</button>
+      </div>
+      <div class="output">
+        <p>Result: <span class="result"></span></p>
+      </div>
+    </div>
+    <div class="emptyBox">Please Provide a number to convert</div>
+    <!-- now javascript lets go :) -->
+    <script src="numtoword.min.js"></script>
+    <script>
+      //getting all required elements
+      let inputBox = document.querySelector('.inputBox');
+      let convertBtn = document.querySelector('.convertBtn');
+      let result = document.querySelector('.result');
+      let emptyBox = document.querySelector('.emptyBox');
+
+      convertBtn.addEventListener('click', () => {
+        // main code
+        if (inputBox.value === '') {
+          // what we say is easy that when it is empty just add active class to emptyBox
+          emptyBox.classList.add('active');
+        } else {
+          // if it is not empty then remove it :)
+          emptyBox.classList.remove('active');
+        }
+        // then converter code
+        // hope i didnt did any error XD
+        result.innerText = numberToWords.toWords(inputBox.value);
+      });
+    </script>
+
+  </body>
+</html>
